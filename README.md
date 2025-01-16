@@ -48,6 +48,8 @@ Or by running the following commands:
 git clone https://github.com/Zenos5/MathLLM.git
 cd MathLLM/NExT-GPT
 
+bash install.sh
+# OR
 ./install.sh
 ```
 If you use install.sh, make sure conda is a part of path, point to a specific conda module, or point to the location your conda iteration is stored.
