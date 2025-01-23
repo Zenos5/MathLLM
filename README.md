@@ -54,4 +54,16 @@ bash install.sh
 ```
 If you use install.sh, make sure conda is a part of path, point to a specific conda module, or point to the location your conda iteration is stored.
 
+# Setup ckpt/
+In the ```ckpt/``` repository you will need to download the contents for ```pretrained_ckpt/imagebind_ckpt/``` and ```pretrained_ckpt/llemma_ckpt/```.
+
+For imagebind, go to or create the ```pretrained_ckpt/imagebind_ckpt/``` directory inside of the ```ckpt/``` repository and run:
+
+```
+wget https://dl.fbaipublicfiles.com/imagebind/imagebind_huge.pth
+```
+
+For Llemma, go to or create the ```pretrained_ckpt/llemma_ckpt/``` directory inside of the ```ckpt/``` repository.  You will need to download the files from the [Llemma_7b](https://huggingface.co/EleutherAI/llemma_7b) huggingface repo and place them within the ```llemma_ckpt/``` directory:
+
+To get the tunable parameters for NExT-GPT go to ```https://huggingface.co/ChocoWu/nextgpt_7b_tiva_v0``` and download the files in the huggingface repository to ```delta_ckpt/nextgpt/7b_tiva_v0/```, or create the directory to store the files in if it does not already exist.
 
