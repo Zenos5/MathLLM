@@ -40,6 +40,8 @@ pip install scipy
 pip install tensorboard
 
 pip install -r requirements.txt
+
+pip install git+https://github.com/EleutherAI/lm-evaluation-harness.git
 ```
 
 Or by running the following commands:
