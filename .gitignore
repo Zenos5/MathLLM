@@ -1,3 +1,2 @@
 *.pth
-./NExT-GPT/ckpt/pretrained_ckpt/llemma_ckpt/*
-./NExT-GPT/ckpt/delta_ckpt/*
+NExT-GPT/ckpt
