@@ -15,21 +15,14 @@
 # Load miniconda
 module load miniconda3
 
-# Create and Activate Conda Environment
-conda create -n mathllm python=3.8
-
+#Activate Conda Environment
 conda activate mathllm
 
-# Install Dependancies
-# CUDA 12.1
-conda install pytorch==2.1.2 torchvision==0.14.1 torchaudio==0.13.1 pytorch-cuda=11.6 -c pytorch -c nvidia
+# Run program
 
-pip install joblib==1.3.0
-conda install matplotlib
-conda install numpy
-conda install pandas
-conda install scipy
-conda install tensorboard
+# Generate task configuration for lm evaluation harness
+cd configs
+python lm_eval_yaml_gen.py
 
-pip install -r requirements.txt
+conda deactivate
 
