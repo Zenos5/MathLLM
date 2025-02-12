@@ -21,6 +21,8 @@ pip install scipy
 pip install tensorboard
 pip install image-similarity-measures[speedups]
 pip install -U scikit-learn
+pip install cog
+pip install sentencepiece
 pip install -r requirements.txt
 
 conda deactivate

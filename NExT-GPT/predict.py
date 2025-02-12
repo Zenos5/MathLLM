@@ -213,7 +213,8 @@ def load_image(image_file):
 
 if __name__ == "__main__":
     predictor = Predictor()
-    predictor.setup(model_base=None, model_name="nextgpt-v1.5-7b", model_path="./checkpoints/nextgpt-v1.5-7b", load_8bit=False, load_4bit=False)
+    # predictor.setup(model_base=None, model_name="ChocoWu/nextgpt_7b_tiva_v0", model_path="./ckpt/", load_8bit=False, load_4bit=False)
+    predictor.setup(model_base="./ckpt/pretrained_ckpt/", model_name="./ckpt/pretrained_ckpt/llemma_ckpt/", model_path="./ckpt/delta_ckpt/nextgpt/7b_tiva_v0/", load_8bit=False, load_4bit=False)
     # show me a beautiful landscape of 
     # descibe the bird in the image
     predictor.predict(image="./assets/bird_image.jpg", prompt="show me an image of a cute dog running on the grass")

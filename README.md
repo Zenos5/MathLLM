@@ -39,6 +39,8 @@ pip install pandas
 pip install scipy
 pip install tensorboard
 pip install image-similarity-measures[speedups]
+pip install cog
+pip install sentencepiece
 pip install -U scikit-learn
 
 pip install -r requirements.txt

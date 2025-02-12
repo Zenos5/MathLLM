@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#SBATCH --time=4:00:00   # walltime.  hours:minutes:seconds
+#SBATCH --time=0:10:00   # walltime.  hours:minutes:seconds
 #SBATCH --ntasks=1   # number of processor cores (i.e. tasks)
 #SBATCH --nodes=1   # number of nodes
 #SBATCH --gpus=1
@@ -16,13 +16,12 @@
 module load miniconda3
 
 #Activate Conda Environment
-conda activate mathllm
+activate mathllm
 
 # Run program
 
-# Generate task configuration for lm evaluation harness
-cd configs
-python lm_eval_yaml_gen.py
+# Make a prediction
+python predict.py
 
 conda deactivate
 
