@@ -89,14 +89,16 @@ def load_pretrained_model(model_path, model_base, model_name, load_8bit=False, l
             from nextgpt.model.language_model.nextgpt_llama import NextGPTConfig
             cfg_pretrained = NextGPTConfig.from_pretrained(model_base)
             print('cfg_pretrained: ', cfg_pretrained)
-            model = NextGPTLlamaForCausalLM.from_pretrained(model_base, config=cfg_pretrained).to(device="cuda", dtype=torch.float16) 
+            model = NextGPTLlamaForCausalLM.from_pretrained(model_base, config=cfg_pretrained)#.to(device="cuda", dtype=torch.float16) 
             print("kwargs: ", kwargs)
             
 
-            print('mm_input_projector device', model.get_model().mm_input_projector.device)
-            print('mm_input_projector dtype', model.get_model().mm_input_projector.dtype)
-            print('mm_output_img_projector device', model.get_model().mm_output_img_projector.device)
-            print('mm_output_img_projector dtype', model.get_model().mm_output_img_projector.dtype)
+            # print('mm_input_projector device', model.get_model().mm_input_projector.device)
+            print('mm_input_projector device', model.get_model().get_input_projector)
+            # print('mm_input_projector dtype', model.get_model().mm_input_projector.dtype)
+            # print('mm_output_img_projector device', model.get_model().mm_output_img_projector.device)
+            print('mm_output_img_projector device', model.get_model().get_output_image_projector)
+            # print('mm_output_img_projector dtype', model.get_model().mm_output_img_projector.dtype)
             print('Model device...', model.get_model().device)
         else:
             tokenizer = AutoTokenizer.from_pretrained(model_path, use_fast=False)
@@ -143,9 +145,9 @@ def load_pretrained_model(model_path, model_base, model_name, load_8bit=False, l
             model.resize_token_embeddings(len(tokenizer))
 
         multimodal_tower = model.get_multimodal_tower()
-        multimodal_tower.to(device=model.device)
-        print("multimodal_tower device: ", multimodal_tower.device)
-        print("multimodal_tower dtype: ", multimodal_tower.dtype)
+        # multimodal_tower.to(device=model.device)
+        # print("multimodal_tower device: ", multimodal_tower.device)
+        # print("multimodal_tower dtype: ", multimodal_tower.dtype)
         mm_input_projector = model.get_input_projector().to(device=model.device)
         mm_output_img_projector = model.get_output_image_projector().to(device=model.device)
         mm_output_vid_projector = model.get_output_video_projector().to(device=model.device)
